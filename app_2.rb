@@ -23,8 +23,10 @@ while player1.life_points >= 0 && (bots1.life_points > 0 || bots2.life_points > 
   attaquer un joueur en vue :
   0 - Josiane a #{bots2.life_points} points de vie
   1 - José a #{bots1.life_points} points de vie"
+  print "\n ->"
   input = gets.chomp
   input = input.to_s
+  print "\n"
   if input == "a"
     player1.search_weapon
   elsif input == "s"
@@ -33,22 +35,23 @@ while player1.life_points >= 0 && (bots1.life_points > 0 || bots2.life_points > 
     if bots2.life_points > 0
       player1.attacks(bots2)
     else
-      puts "#{bots2.name} est mort, vous ne pouvez plus l'attaquer"
+      puts "--> #{bots2.name} est mort, vous ne pouvez plus l'attaquer"
     end
   elsif input == "1"
     if bots1.life_points > 0
       player1.attacks(bots1)
     else
-      puts "#{bots2.name} est mort, vous ne pouvez plus l'attaquer"
+      puts "--> #{bots2.name} est mort, vous ne pouvez plus l'attaquer"
     end
   elsif !(input == "a" &&  input == "s" && input == "0" && input == "1" )
-    puts  "Vous êtes sortie du programme"
+    puts  "\t  Vous êtes sortie du programme"
     break
   end
     if bots1.life_points > 0 && bots2.life_points > 0
-      bots1.attacks(player1)
-      bots2.attacks(player1)
-      puts " "
+      ennemie.each do |bot|
+        bot.attacks(player1) 
+        puts " "
+    end
   end
 end
 
