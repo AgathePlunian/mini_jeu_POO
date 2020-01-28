@@ -50,31 +50,31 @@ attr_accessor :weapon_level
 
 	def search_weapon
 			found_level_weapon = rand(1..6)
-			puts "Tu as trouvé une arme de niveau #{found_level_weapon}"
+			puts "#{@name} a trouvé une arme de niveau #{found_level_weapon}"
 			if @weapon_level < found_level_weapon 
 					@weapon_level = found_level_weapon
-					puts "YOUHOU ! Elle est meilleure que ton arme actuelle: tu la prends !"
+					puts "YOUHOU ! Elle est meilleure que son arme actuelle: il la prends !"
 			else 
-					puts "CHIENNE DE VIE ! Elle n'est pas mieux que ton arme actuelle la putain de sa mère !"
+					puts "CHIENNE DE VIE ! Elle n'est pas mieux que son arme actuelle la putain de sa mère !"
 			end
 	end
 
 	def search_health_pack
 		found_health = rand(1..6)
 		if found_health == 1
-			puts "Tu n'as rien trouvé..."
-		elsif found_health == [2..5]
+			puts "#{name} n'a rien trouvé..."
+		elsif found_health > 1 && found_health < 6
 			@life_points += 50
 			if @life_points > 100
 				@life_points = 100
 			end
-		puts "Bravo, tu as trouvé un pack de +50 points de vie !"
+		puts "Bravo, #{name} a trouvé un pack de +50 points de vie !"
 		elsif found_health == 6
 				@life_points += 80
 			if @life_points > 100
 				@life_points = 100
 		end
-		puts "Waouuuuuuuw, tu as trouvé un pack de +80 points de vie !"
+		puts "Waouuuuuuuw,  #{name} a trouvé un pack de +80 points de vie !"
 		end
    end
 end
